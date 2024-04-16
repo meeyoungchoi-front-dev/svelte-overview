@@ -10,13 +10,14 @@
   //   box.addEventListener('click', () => {
   //     isRed = !isRed;
   //   })
-  // })
-  
+  // })  
 </script>
 
 <main>
 <h1>Hello {name}</h1>
-<div class="box" style="background-color: {isRed ? 'red' : 'orange'};" on:click={() => {isRed = !isRed}}>Box!</div>
+<div class="box" style="background-color: {isRed ? 'red' : 'orange'};" on:click={() => {isRed = !isRed}}
+                 on:mouseenter={() => {name='enter'}}
+                 on:mouseleave={()=> {name='leave'}} >Box!</div>
 </main>
 
 <style>
