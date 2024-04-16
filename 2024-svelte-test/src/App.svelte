@@ -3,24 +3,20 @@
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
   let name = 'world';
-  let toggle = false;
-  if (toggle) {
-
-  } else {
-
+  let fruits = ['Apple', 'Banana', 'Cherry', 'Orange', 'Mango'];
+  function deleteFruit() {
+    fruits = fruits.slice(1);
   }
 </script>
 
 <main>
-
-<button on:click={() => {toggle = !toggle}}>Toggle</button>
-{#if toggle}
-  <h1>Hello {name}</h1>
-{:else}
-  <div>
-    No Name!
-  </div>
-{/if}
+<h1>Hello {name}</h1>
+<ul>
+    {#each fruits as fruit}
+      <li>{fruit}</li>
+    {/each}
+</ul>
+<button on:click={deleteFruit}>Eat it!</button>
 </main>
 
 <style>
