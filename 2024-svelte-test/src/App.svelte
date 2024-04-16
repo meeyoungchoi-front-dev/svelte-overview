@@ -3,35 +3,13 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
-  let name = 'world';
-  let isRed = false;
-  // onMount(() => {
-  //   const box = document.querySelector(".box");
-  //   box.addEventListener('click', () => {
-  //     isRed = !isRed;
-  //   })
-  // })  
-
-  function enter() {
-    name = 'enter';
-  }
-
-  function leave() {
-    name = 'leave';
-  }
+  let text = "";
 </script>
 
 <main>
-<h1>Hello {name}</h1>
-<div class="box" style="background-color: {isRed ? 'red' : 'orange'};" on:click={() => {isRed = !isRed}}
-                 on:mouseenter={enter}
-                 on:mouseleave={leave}>Box!</div>
+    <h1>{text}</h1>
+    <input type="text" 
+           value={text} 
+           on:input={(e) => {text = e.target.value}}/>
+    <button on:click={() => {text = 'Heropy'}}>Click</button>
 </main>
-
-<style>
-  .box {
-    width: 300px;
-    height: 150px;
-    background-color: orange;
-  }
-</style>
