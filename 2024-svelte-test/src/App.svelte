@@ -1,15 +1,11 @@
 <script>
-  //import { onMount } from 'svelte'//현재 컴포넌트가 준비되면 콜백 함수의 내용을 실행하겠다
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
-  let text = "";
+  import Counter from './lib/Counter.svelte' 
+  import Fruits from './components/Fruits.svelte';
+  let fruits = ['Apple','Banana','Cherry','Orange','Mango'];
 </script>
-
-<main>
-    <h1>{text}</h1>
-    <input type="text" 
-           value={text} 
-           on:input={(e) => {text = e.target.value}}/>
-    <button on:click={() => {text = 'Heropy'}}>Click</button>
-</main>
+<Fruits fruits={fruits}/>
+<Fruits fruits={fruits} reverse={true}/>
+<Fruits fruits={fruits} slice="-2"/>
+<Fruits fruits={fruits} slice="0, 3"/>
