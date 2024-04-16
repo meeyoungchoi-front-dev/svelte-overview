@@ -11,13 +11,21 @@
   //     isRed = !isRed;
   //   })
   // })  
+
+  function enter() {
+    name = 'enter';
+  }
+
+  function leave() {
+    name = 'leave';
+  }
 </script>
 
 <main>
 <h1>Hello {name}</h1>
 <div class="box" style="background-color: {isRed ? 'red' : 'orange'};" on:click={() => {isRed = !isRed}}
-                 on:mouseenter={() => {name='enter'}}
-                 on:mouseleave={()=> {name='leave'}} >Box!</div>
+                 on:mouseenter={enter}
+                 on:mouseleave={leave}>Box!</div>
 </main>
 
 <style>
