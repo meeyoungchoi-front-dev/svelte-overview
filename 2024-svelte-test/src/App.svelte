@@ -1,30 +1,28 @@
 <script>
+  import { onMount } from 'svelte'//현재 컴포넌트가 준비되면 콜백 함수의 내용을 실행하겠다
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
   let name = 'world';
-  let fruits = ['Apple', 'Banana', 'Cherry', 'Orange', 'Mango'];
-  function deleteFruit() {
-    fruits = fruits.slice(1);
-  }
+  let isRed = false;
+  onMount(() => {
+    const box = document.querySelector(".box");
+    box.addEventListener('click', () => {
+      isRed = !isRed;
+    })
+  })
+  
 </script>
 
 <main>
 <h1>Hello {name}</h1>
-<ul>
-    {#each fruits as fruit}
-      <li>{fruit}</li>
-    {/each}
-</ul>
-<button on:click={deleteFruit}>Eat it!</button>
+<div class="box" style="background-color: {isRed ? 'red' : 'orange'}">Box!</div>
 </main>
 
 <style>
-  h1 {
-    color: red;
-  }
-
-  .active {
-    color: blue;
+  .box {
+    width: 300px;
+    height: 150px;
+    background-color: orange;
   }
 </style>
